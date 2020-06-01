@@ -1,12 +1,12 @@
 // id,collection,date,type,subtype,sourcelabel,sourcetype,sourcecall,note
 
-// takes ~24min
+// 24mins
 :auto USING PERIODIC COMMIT 1000
 LOAD CSV WITH HEADERS FROM 'file:///images.csv' AS row
 MERGE (i:Image {imageId: row.id})
 ;
 
-// 
+// 45 mins
 :auto USING PERIODIC COMMIT 1000
 LOAD CSV WITH HEADERS FROM 'file:///images.csv' AS row
 WITH row WHERE row.collection IS NOT NULL
